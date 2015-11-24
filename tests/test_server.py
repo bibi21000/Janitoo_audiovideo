@@ -60,7 +60,7 @@ class TestAudioVideoSerser(JNTTServer, JNTTServerCommon):
     broker_user = 'toto'
     broker_password = 'toto'
     server_class = AudioVideoServer
-    server_conf = "/opt/janitoo/src/janitoo_audiovideo/tests/data/janitoo_audiovideo.conf"
+    server_conf = "tests/data/janitoo_audiovideo.conf"
 
     def test_110_request_system_values(self):
         self.start()

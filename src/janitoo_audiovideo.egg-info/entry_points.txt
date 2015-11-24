@@ -1,6 +1,3 @@
-[janitoo.components]
-audiovideo.samsung_ue46 = janitoo_audiovideo.samsung:make_ue46
-
 [janitoo.threads]
 audiovideo = janitoo_audiovideo.thread:make_thread
 
@@ -8,4 +5,7 @@ audiovideo = janitoo_audiovideo.thread:make_thread
 av_channel = janitoo_audiovideo.value_factory:make_av_channel
 av_source = janitoo_audiovideo.value_factory:make_av_source
 av_volume = janitoo_audiovideo.value_factory:make_av_volume
+
+[janitoo.components]
+audiovideo.samsung_ue46 = janitoo_audiovideo.samsung:make_ue46
 
