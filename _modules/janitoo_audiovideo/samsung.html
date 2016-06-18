@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_audiovideo.samsung &mdash; janitoo_audiovideo 0.0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_audiovideo 0.0.7 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          janitoo_audiovideo</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../tools/index.html">Tools</a></li>
+                <li><a href="../../api/index.html">Reference</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docker.html"> Docker appliance image</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#installing-docker">Installing Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#initial-installation">Initial installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#start-the-container">Start the container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#customize-your-installation">Customize your installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#performances">Performances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docker.html#administer-your-containers">Administer your containers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../queries.html"> Queries results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../using_doc.html"> Using documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../using_doc.html#the-header">The header</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for janitoo_audiovideo.samsung</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;The Samsung Janitoo helper</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    This file is part of Janitoo.</span>
+
+<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s">    it under the terms of the GNU General Public License as published by</span>
+<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s">    (at your option) any later version.</span>
+
+<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s">    GNU General Public License for more details.</span>
+
+<span class="s">    You should have received a copy of the GNU General Public License</span>
+<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+
+<span class="c"># Set default logging handler to avoid &quot;No handler found&quot; warnings.</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">from</span> <span class="nn">janitoo.options</span> <span class="kn">import</span> <span class="n">get_option_autostart</span>
+<span class="kn">from</span> <span class="nn">janitoo.utils</span> <span class="kn">import</span> <span class="n">HADD</span><span class="p">,</span> <span class="n">HADD_SEP</span><span class="p">,</span> <span class="n">json_dumps</span><span class="p">,</span> <span class="n">json_loads</span>
+<span class="kn">from</span> <span class="nn">janitoo.node</span> <span class="kn">import</span> <span class="n">JNTNode</span>
+<span class="kn">from</span> <span class="nn">janitoo.value</span> <span class="kn">import</span> <span class="n">JNTValue</span>
+<span class="kn">from</span> <span class="nn">janitoo.component</span> <span class="kn">import</span> <span class="n">JNTComponent</span>
+<span class="kn">from</span> <span class="nn">janitoo.thread</span> <span class="kn">import</span> <span class="n">JNTBusThread</span>
+<span class="kn">from</span> <span class="nn">janitoo.bus</span> <span class="kn">import</span> <span class="n">JNTBus</span>
+<span class="kn">from</span> <span class="nn">janitoo.classes</span> <span class="kn">import</span> <span class="n">COMMAND_DESC</span>
+
+<span class="c">##############################################################</span>
+<span class="c">#Check that we are in sync with the official command classes</span>
+<span class="c">#Must be implemented for non-regression</span>
+<span class="kn">from</span> <span class="nn">janitoo.classes</span> <span class="kn">import</span> <span class="n">COMMAND_DESC</span>
+
+<span class="n">COMMAND_DISPLAY</span> <span class="o">=</span> <span class="mh">0x0061</span>
+<span class="n">COMMAND_AV_CHANNEL</span> <span class="o">=</span> <span class="mh">0x2100</span>
+<span class="n">COMMAND_AV_VOLUME</span> <span class="o">=</span> <span class="mh">0x2101</span>
+<span class="n">COMMAND_NOTIFY</span> <span class="o">=</span> <span class="mh">0x3010</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">COMMAND_DESC</span><span class="p">[</span><span class="n">COMMAND_DISPLAY</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;COMMAND_DISPLAY&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">COMMAND_DESC</span><span class="p">[</span><span class="n">COMMAND_AV_CHANNEL</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;COMMAND_AV_CHANNEL&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">COMMAND_DESC</span><span class="p">[</span><span class="n">COMMAND_AV_VOLUME</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;COMMAND_AV_VOLUME&#39;</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">COMMAND_DESC</span><span class="p">[</span><span class="n">COMMAND_NOTIFY</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;COMMAND_NOTIFY&#39;</span><span class="p">)</span>
+<span class="c">##############################################################</span>
+
+<span class="kn">from</span> <span class="nn">janitoo_audiovideo</span> <span class="kn">import</span> <span class="n">OID</span>
+
+<div class="viewcode-block" id="make_ue46"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.make_ue46">[docs]</a><span class="k">def</span> <span class="nf">make_ue46</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SamsungUE46</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<span class="n">_mappings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s">&quot;p&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_POWEROFF&quot;</span><span class="p">,</span>      <span class="s">&quot;P&quot;</span><span class="p">,</span>         <span class="s">&quot;Power off&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_UP&quot;</span><span class="p">,</span>    <span class="s">&quot;KEY_UP&quot;</span><span class="p">,</span>            <span class="s">&quot;Up&quot;</span><span class="p">,</span>        <span class="s">&quot;Up&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_DOWN&quot;</span><span class="p">,</span>  <span class="s">&quot;KEY_DOWN&quot;</span><span class="p">,</span>          <span class="s">&quot;Down&quot;</span><span class="p">,</span>      <span class="s">&quot;Down&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_LEFT&quot;</span><span class="p">,</span>  <span class="s">&quot;KEY_LEFT&quot;</span><span class="p">,</span>          <span class="s">&quot;Left&quot;</span><span class="p">,</span>      <span class="s">&quot;Left&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_RIGHT&quot;</span><span class="p">,</span> <span class="s">&quot;KEY_RIGHT&quot;</span><span class="p">,</span>         <span class="s">&quot;Right&quot;</span><span class="p">,</span>     <span class="s">&quot;Right&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_PPAGE&quot;</span><span class="p">,</span> <span class="s">&quot;KEY_CHUP&quot;</span><span class="p">,</span>          <span class="s">&quot;Page Up&quot;</span><span class="p">,</span>   <span class="s">&quot;P Up&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_NPAGE&quot;</span><span class="p">,</span> <span class="s">&quot;KEY_CHDOWN&quot;</span><span class="p">,</span>        <span class="s">&quot;Page Down&quot;</span><span class="p">,</span> <span class="s">&quot;P Down&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>        <span class="s">&quot;KEY_ENTER&quot;</span><span class="p">,</span>         <span class="s">&quot;Enter&quot;</span><span class="p">,</span>     <span class="s">&quot;Enter&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;</span><span class="se">\x7f</span><span class="s">&quot;</span><span class="p">,</span>      <span class="s">&quot;KEY_RETURN&quot;</span><span class="p">,</span>        <span class="s">&quot;Backspace&quot;</span><span class="p">,</span> <span class="s">&quot;Return&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;l&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_CH_LIST&quot;</span><span class="p">,</span>       <span class="s">&quot;L&quot;</span><span class="p">,</span>         <span class="s">&quot;Channel List&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;m&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_MENU&quot;</span><span class="p">,</span>          <span class="s">&quot;M&quot;</span><span class="p">,</span>         <span class="s">&quot;Menu&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;s&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_SOURCE&quot;</span><span class="p">,</span>        <span class="s">&quot;S&quot;</span><span class="p">,</span>         <span class="s">&quot;Source&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;g&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_GUIDE&quot;</span><span class="p">,</span>         <span class="s">&quot;G&quot;</span><span class="p">,</span>         <span class="s">&quot;Guide&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;t&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_TOOLS&quot;</span><span class="p">,</span>         <span class="s">&quot;T&quot;</span><span class="p">,</span>         <span class="s">&quot;Tools&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;i&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_INFO&quot;</span><span class="p">,</span>          <span class="s">&quot;I&quot;</span><span class="p">,</span>         <span class="s">&quot;Info&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;z&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_RED&quot;</span><span class="p">,</span>           <span class="s">&quot;Z&quot;</span><span class="p">,</span>         <span class="s">&quot;A / Red&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;x&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_GREEN&quot;</span><span class="p">,</span>         <span class="s">&quot;X&quot;</span><span class="p">,</span>         <span class="s">&quot;B / Green&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;c&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_YELLOW&quot;</span><span class="p">,</span>        <span class="s">&quot;C&quot;</span><span class="p">,</span>         <span class="s">&quot;C / Yellow&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;v&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_BLUE&quot;</span><span class="p">,</span>          <span class="s">&quot;V&quot;</span><span class="p">,</span>         <span class="s">&quot;D / Blue&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;d&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_PANNEL_CHDOWN&quot;</span><span class="p">,</span> <span class="s">&quot;D&quot;</span><span class="p">,</span>         <span class="s">&quot;3D&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;+&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_VOLUP&quot;</span><span class="p">,</span>         <span class="s">&quot;+&quot;</span><span class="p">,</span>         <span class="s">&quot;Volume Up&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;-&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_VOLDOWN&quot;</span><span class="p">,</span>       <span class="s">&quot;-&quot;</span><span class="p">,</span>         <span class="s">&quot;Volume Down&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;*&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_MUTE&quot;</span><span class="p">,</span>          <span class="s">&quot;*&quot;</span><span class="p">,</span>         <span class="s">&quot;Mute&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;0&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_0&quot;</span><span class="p">,</span>             <span class="s">&quot;0&quot;</span><span class="p">,</span>         <span class="s">&quot;0&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;1&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_1&quot;</span><span class="p">,</span>             <span class="s">&quot;1&quot;</span><span class="p">,</span>         <span class="s">&quot;1&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;2&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_2&quot;</span><span class="p">,</span>             <span class="s">&quot;2&quot;</span><span class="p">,</span>         <span class="s">&quot;2&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;3&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_3&quot;</span><span class="p">,</span>             <span class="s">&quot;3&quot;</span><span class="p">,</span>         <span class="s">&quot;3&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;4&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_4&quot;</span><span class="p">,</span>             <span class="s">&quot;4&quot;</span><span class="p">,</span>         <span class="s">&quot;4&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;5&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_5&quot;</span><span class="p">,</span>             <span class="s">&quot;5&quot;</span><span class="p">,</span>         <span class="s">&quot;5&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;6&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_6&quot;</span><span class="p">,</span>             <span class="s">&quot;6&quot;</span><span class="p">,</span>         <span class="s">&quot;6&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;7&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_7&quot;</span><span class="p">,</span>             <span class="s">&quot;7&quot;</span><span class="p">,</span>         <span class="s">&quot;7&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;8&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_8&quot;</span><span class="p">,</span>             <span class="s">&quot;8&quot;</span><span class="p">,</span>         <span class="s">&quot;8&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;9&quot;</span><span class="p">,</span>         <span class="s">&quot;KEY_9&quot;</span><span class="p">,</span>             <span class="s">&quot;9&quot;</span><span class="p">,</span>         <span class="s">&quot;9&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_F(1)&quot;</span><span class="p">,</span>  <span class="s">&quot;KEY_DTV&quot;</span><span class="p">,</span>           <span class="s">&quot;F1&quot;</span><span class="p">,</span>        <span class="s">&quot;TV Source&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s">&quot;KEY_F(2)&quot;</span><span class="p">,</span>  <span class="s">&quot;KEY_HDMI&quot;</span><span class="p">,</span>          <span class="s">&quot;F2&quot;</span><span class="p">,</span>        <span class="s">&quot;HDMI Source&quot;</span><span class="p">],</span>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="SamsungUE46"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46">[docs]</a><span class="k">class</span> <span class="nc">SamsungUE46</span><span class="p">(</span><span class="n">JNTComponent</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Provides the interface for a DS18B20 device. &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bus</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructor.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            bus:</span>
+
+<span class="sd">            addr:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">JNTComponent</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">oid</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;oid&#39;</span><span class="p">,</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">.samsung_ue46&#39;</span><span class="o">%</span><span class="n">OID</span><span class="p">),</span>
+            <span class="n">bus</span> <span class="o">=</span> <span class="n">bus</span><span class="p">,</span>
+            <span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span><span class="p">,</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&quot;UE46xxxs Samsung TVs&quot;</span><span class="p">),</span>
+            <span class="n">product_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;product_name&#39;</span><span class="p">,</span><span class="s">&quot;UE46xxxs Samsung TVs&quot;</span><span class="p">),</span>
+            <span class="n">product_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;product_type&#39;</span><span class="p">,</span><span class="s">&quot;TV&quot;</span><span class="p">),</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;ip_ping&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;ip_ping&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Ping the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Ping&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">config_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span><span class="o">.</span><span class="n">create_config_value</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="s">&#39;The IP of the TV&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;IP&#39;</span><span class="p">,)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">config_value</span><span class="o">.</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_value</span>
+        <span class="n">poll_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span><span class="o">.</span><span class="n">create_poll_value</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">poll_value</span><span class="o">.</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="n">poll_value</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;mac_address&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_string&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The mac_address of the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;MAC address&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;remote_name&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_string&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The name of the remote on the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Remote name&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;sleep_delay&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_float&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The delay between two commands to the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Delay&#39;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;port_cmd&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_integer&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The command port of the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Port_cmd&#39;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mi">55000</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;port_notif&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_integer&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The notification port of the TV&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Port_notif&#39;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mi">52235</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;channel_change&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;action_list&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Change the channel&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Channel change&#39;</span><span class="p">,</span>
+            <span class="n">list_items</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;up&#39;</span><span class="p">,</span> <span class="s">&#39;down&#39;</span><span class="p">],</span>
+            <span class="n">set_data_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_change</span><span class="p">,</span>
+            <span class="n">is_writeonly</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="n">cmd_class</span> <span class="o">=</span> <span class="n">COMMAND_AV_CHANNEL</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;channel_set&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;action_byte&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Set the channel&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Channel set&#39;</span><span class="p">,</span>
+            <span class="n">set_data_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_set</span><span class="p">,</span>
+            <span class="n">is_writeonly</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="n">cmd_class</span> <span class="o">=</span> <span class="n">COMMAND_AV_CHANNEL</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="SamsungUE46.check_heartbeat"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.check_heartbeat">[docs]</a>    <span class="k">def</span> <span class="nf">check_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check that the component is &#39;available&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">pid</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s">&quot;/usr/sbin/arp&quot;</span><span class="p">,</span> <span class="s">&quot;-n&quot;</span><span class="p">,</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+                    <span class="n">s</span> <span class="o">=</span> <span class="n">pid</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">remac</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&quot;(([a-f\d]{1,2}\:){5}[a-f\d]{1,2})&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">remac</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">macaddress</span> <span class="o">=</span> <span class="n">remac</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">macaddress</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Can&#39;t retrieve mac address of the tv&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when retrieving mac address of the tv&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>
+</div>
+<div class="viewcode-block" id="SamsungUE46.channel_change"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.channel_change">[docs]</a>    <span class="k">def</span> <span class="nf">channel_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_uuid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">remote</span> <span class="o">=</span> <span class="n">SamsungRemote</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;port_cmd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;remote_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">SamsungRemote</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Error: Access to the TV denied!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;up&quot;</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;KEY_CHUP&quot;</span>
+            <span class="k">elif</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;down&quot;</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;KEY_CHDOWN&quot;</span>
+            <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
+                <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when changing channel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SamsungUE46.channel_set"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.channel_set">[docs]</a>    <span class="k">def</span> <span class="nf">channel_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_uuid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">remote</span> <span class="o">=</span> <span class="n">SamsungRemote</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;port_cmd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;remote_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">SamsungRemote</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Error: Access to the TV denied!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">data</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_0&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_1&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;2&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_2&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;3&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_3&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;4&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_4&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;5&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_5&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;6&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_6&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;7&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_7&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;8&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_8&#39;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;9&#39;</span><span class="p">:</span>
+                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_9&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                    <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when setting channel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SamsungUE46.notify_sms"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.notify_sms">[docs]</a>    <span class="k">def</span> <span class="nf">notify_sms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sender_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_DEBUG</span><span class="p">,</span> <span class="s">&#39;notify_sms from  </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">sender_no</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rtime</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">rtime</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">receiver</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">receiver</span><span class="o">=</span><span class="n">receiver_no</span>
+        <span class="k">if</span> <span class="n">sender</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">sender</span><span class="o">=</span><span class="n">sender_no</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s">&quot;&lt;?xml version=</span><span class="se">\&quot;</span><span class="s">1.0</span><span class="se">\&quot;</span><span class="s"> encoding=</span><span class="se">\&quot;</span><span class="s">utf-8</span><span class="se">\&quot;</span><span class="s">?&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Envelope xmlns:s=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/envelope/</span><span class="se">\&quot;</span><span class="s"> s:encodingStyle=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/encoding/</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;      &lt;u:AddMessage xmlns:u=</span><span class="se">\&quot;</span><span class="s">urn:samsung.com:service:MessageBoxService:1</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;         &lt;MessageType&gt;text/xml&lt;/MessageType&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;         &lt;MessageID&gt;MessageId&lt;/MessageID&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;Message&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Category&amp;gt;SMS&amp;lt;/Category&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;DisplayType&amp;gt;Maximum&amp;lt;/DisplayType&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;ReceiveTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">rtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">rtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/ReceiveTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Receiver&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Number&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="n">receiver_no</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Number&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">receiver</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Receiver&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Sender&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Number&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="n">sender_no</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Number&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">sender</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Name&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Sender&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/Message&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;      &lt;/u:AddMessage&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;   &lt;/s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/s:Envelope&gt;&quot;</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SamsungUE46.notify_incoming_call"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.notify_incoming_call">[docs]</a>    <span class="k">def</span> <span class="nf">notify_incoming_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sender_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_DEBUG</span><span class="p">,</span> <span class="s">&#39;notify_incoming_call from  </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">sender_no</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rtime</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">rtime</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">receiver</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">receiver</span><span class="o">=</span><span class="n">receiver_no</span>
+        <span class="k">if</span> <span class="n">sender</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">sender</span><span class="o">=</span><span class="n">sender_no</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s">&quot;&lt;?xml version=</span><span class="se">\&quot;</span><span class="s">1.0</span><span class="se">\&quot;</span><span class="s"> encoding=</span><span class="se">\&quot;</span><span class="s">utf-8</span><span class="se">\&quot;</span><span class="s">?&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Envelope xmlns:s=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/envelope/</span><span class="se">\&quot;</span><span class="s"> s:encodingStyle=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/encoding/</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;      &lt;u:AddMessage xmlns:u=</span><span class="se">\&quot;</span><span class="s">urn:samsung.com:service:MessageBoxService:1</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;         &lt;MessageType&gt;text/xml&lt;/MessageType&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;         &lt;MessageID&gt;MessageId&lt;/MessageID&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;Message&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Category&amp;gt;Incoming Call&amp;lt;/Category&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;DisplayType&amp;gt;Maximum&amp;lt;/DisplayType&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;CallTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">rtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">rtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/CallTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Callee&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Number&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="n">receiver_no</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Number&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">receiver</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Callee&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Caller&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Number&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="n">sender_no</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Number&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">sender</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Name&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Caller&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/Message&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;      &lt;/u:AddMessage&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;   &lt;/s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/s:Envelope&gt;&quot;</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SamsungUE46.notify_schedule_reminder"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.notify_schedule_reminder">[docs]</a>    <span class="k">def</span> <span class="nf">notify_schedule_reminder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">starttime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">owner_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_DEBUG</span><span class="p">,</span> <span class="s">&#39;notify_schedule_reminder for  </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">owner_no</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">starttime</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">starttime</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">endtime</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">endtime</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">owner</span><span class="o">==</span><span class="bp">None</span> <span class="p">:</span>
+            <span class="n">owner</span><span class="o">=</span><span class="n">owner_no</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s">&quot;&lt;?xml version=</span><span class="se">\&quot;</span><span class="s">1.0</span><span class="se">\&quot;</span><span class="s"> encoding=</span><span class="se">\&quot;</span><span class="s">utf-8</span><span class="se">\&quot;</span><span class="s">?&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Envelope xmlns:s=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/envelope/</span><span class="se">\&quot;</span><span class="s"> s:encodingStyle=</span><span class="se">\&quot;</span><span class="s">http://schemas.xmlsoap.org/soap/encoding/</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;      &lt;u:AddMessage xmlns:u=</span><span class="se">\&quot;</span><span class="s">urn:samsung.com:service:MessageBoxService:1</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;         &lt;MessageType&gt;text/xml&lt;/MessageType&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;         &lt;MessageID&gt;MessageId&lt;/MessageID&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&lt;Message&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Category&amp;gt;Schedule Reminder&amp;lt;/Category&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;DisplayType&amp;gt;Maximum&amp;lt;/DisplayType&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;StartTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">starttime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">starttime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/StartTime&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;EndTime&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">endtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Date&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">endtime</span><span class="p">))</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Time&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/EndTime&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;Owner&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Number&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="n">owner_no</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Number&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">owner</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;/Name&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Owner&amp;gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;&amp;lt;Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;&amp;lt;/Body&amp;gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/Message&gt;&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;      &lt;/u:AddMessage&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;   &lt;/s:Body&gt;&quot;</span> <span class="o">+</span> <span class="s">&quot;&lt;/s:Envelope&gt;&quot;</span><span class="p">;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notify</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="s">&quot;POST /PMR/control/MessageBoxService HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="s">&quot;Content-Type: text/xml; charset=</span><span class="se">\&quot;</span><span class="s">utf-8</span><span class="se">\&quot;\r\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;HOST: &quot;</span> <span class="o">+</span> <span class="n">ipsource</span> <span class="o">+</span> \
+                <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="s">&quot;Content-Length: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> \
+                <span class="s">&quot;SOAPACTION: </span><span class="se">\&quot;</span><span class="s">uuid:samsung.com:service:MessageBoxService:1#AddMessage</span><span class="se">\&quot;\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="s">&quot;Connection: close</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="n">message</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">52235</span><span class="p">))</span>
+            <span class="n">sent</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sent</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_ERR</span><span class="p">,</span> <span class="s">&#39;Error when notify message. No response from </span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span>
+            <span class="n">recv</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+            <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_ERR</span><span class="p">,</span> <span class="s">&#39;Error when notifying </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">log_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SamsungUE46.push"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.push">[docs]</a>    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+        <span class="c"># keys : http://wiki.samygo.tv/index.php5/D-Series_Key_Codes</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="n">tvlock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="o">=</span><span class="mi">0</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+            <span class="n">new</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="mi">55000</span><span class="p">))</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x64</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ipsource</span><span class="p">)))</span>    <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ipsource</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">macaddress</span><span class="p">)))</span>    <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">macaddress</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">remote</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">remote</span><span class="p">)</span>
+            <span class="n">pkt</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">app</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">app</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">msg</span>
+            <span class="n">new</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">pkt</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tvmodel</span><span class="p">))</span>  <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">tvmodel</span> <span class="o">+</span>\
+                <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">msg</span>
+            <span class="n">new</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span>
+            <span class="n">new</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+            <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_ERR</span><span class="p">,</span> <span class="s">&#39;Error when pushing command to TV </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">log_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">finally</span> <span class="p">:</span>
+            <span class="n">tvlock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+</div></div>
+<div class="viewcode-block" id="SamsungRemote"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungRemote">[docs]</a><span class="k">class</span> <span class="nc">SamsungRemote</span><span class="p">():</span>
+<div class="viewcode-block" id="SamsungRemote.AccessDenied"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungRemote.AccessDenied">[docs]</a>    <span class="k">class</span> <span class="nc">AccessDenied</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="SamsungRemote.UnhandledResponse"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungRemote.UnhandledResponse">[docs]</a>    <span class="k">class</span> <span class="nc">UnhandledResponse</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">remote_name</span><span class="p">,</span> <span class="n">mac_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
+        <span class="n">ip_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">app</span> <span class="o">=</span> <span class="s">&#39;janitoo&#39;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x64</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ip_source</span><span class="p">)))</span>    <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">ip_source</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">mac_address</span><span class="p">)))</span>    <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">mac_address</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">remote_name</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">remote_name</span><span class="p">)</span>
+        <span class="n">packet</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">app</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">app</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">payload</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Sending handshake.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="c">#~ self._read_response(True)</span>
+
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SamsungRemote.close"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungRemote.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SamsungRemote.control"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungRemote.control">[docs]</a>    <span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">packet</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s">&#39;tv&#39;</span><span class="p">))</span>  <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;tv&#39;</span> <span class="o">+</span>\
+            <span class="nb">chr</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">+</span> <span class="n">payload</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Sending control command.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="c">#~ self._read_response(True)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_key_interval</span><span class="p">)</span>
+</div>
+    <span class="n">_key_interval</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+    <span class="k">def</span> <span class="nf">_read_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_time</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">header</span>
+        <span class="n">tv_name_len</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                                     <span class="n">byteorder</span><span class="o">=</span><span class="s">&quot;little&quot;</span><span class="p">)</span>
+        <span class="n">tv_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">tv_name_len</span><span class="p">)</span>
+<span class="c">#~ #~</span>
+        <span class="n">response_len</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                                      <span class="n">byteorder</span><span class="o">=</span><span class="s">&quot;little&quot;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">response_len</span><span class="p">)</span>
+<span class="c">#~ #~</span>
+        <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x64\x00\x01\x00</span><span class="s">&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Access granted.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">response</span> <span class="o">==</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x64\x00\x00\x00</span><span class="s">&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x0a</span><span class="s">&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">first_time</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Waiting for authorization...&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_response</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x65</span><span class="s">&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Authorization cancelled.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">response</span> <span class="o">==</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x00\x00\x00\x00</span><span class="s">&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Control accepted.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+<span class="c">#~ #~</span>
+        <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">UnhandledResponse</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_serialize_string</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">raw</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">raw</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)])</span> <span class="o">+</span> <span class="n">b</span><span class="s">&quot;</span><span class="se">\x00</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">string</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
