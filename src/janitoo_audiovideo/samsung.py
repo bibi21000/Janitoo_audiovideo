@@ -27,14 +27,14 @@ __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi2100
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 logger = logging.getLogger(__name__)
-import os
+
 import time
-from datetime import datetime
+import threading
 from subprocess import Popen, PIPE
 import base64
 import re
 import socket
-from janitoo.utils import HADD, HADD_SEP, json_dumps
+from janitoo.utils import HADD, json_dumps
 from janitoo.component import JNTComponent
 
 ##############################################################
@@ -116,6 +116,8 @@ class SamsungUE46(JNTComponent):
             product_name = kwargs.pop('product_name',"UE46xxxs Samsung TVs"),
             product_type = kwargs.pop('product_type',"TV"),
             **kwargs)
+
+        self.tvlock = threading.Lock()
 
         uuid="ip_ping"
         self.values[uuid] = self.value_factory['ip_ping'](options=self.options, uuid=uuid,
@@ -202,7 +204,7 @@ class SamsungUE46(JNTComponent):
                         macaddress = remac.groups()[0]
                         self.values['mac_address'].data = macaddress
                 logger.warning("[%s] - Can't retrieve mac address of the tv", self.__class__.__name__)
-            except :
+            except Exception:
                 logger.exception('[%s] - Exception when retrieving mac address of the tv', self.__class__.__name__)
         return ret
 
@@ -266,11 +268,11 @@ class SamsungUE46(JNTComponent):
 
     def notify_sms(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :
         logger.debug('notify_sms from  %s', sender_no)
-        if rtime==None :
-            rtime=time.mktime(time.localtime())
-        if receiver==None :
-            receiver=receiver_no
-        if sender==None :
+        if rtime is None :
+            rtime = time.mktime(time.localtime())
+        if receiver is None :
+            receiver = receiver_no
+        if sender is None :
             sender=sender_no
         body = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + \
                 "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">" + \
@@ -289,12 +291,12 @@ class SamsungUE46(JNTComponent):
 
     def notify_incoming_call(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :
         logger.debug('notify_incoming_call from  %s', sender_no)
-        if rtime==None :
-            rtime=time.mktime(time.localtime())
-        if receiver==None :
-            receiver=receiver_no
-        if sender==None :
-            sender=sender_no
+        if rtime is None :
+            rtime = time.mktime(time.localtime())
+        if receiver is None :
+            receiver = receiver_no
+        if sender is None :
+            sender = sender_no
         body = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + \
                 "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">" + \
                 "<s:Body>" + "      <u:AddMessage xmlns:u=\"urn:samsung.com:service:MessageBoxService:1\">" + \
@@ -312,12 +314,12 @@ class SamsungUE46(JNTComponent):
 
     def notify_schedule_reminder(self, starttime=None, endtime=None, owner=None, owner_no="0000000000", message="Hello world") :
         logger.debug('notify_schedule_reminder for  %s', owner_no)
-        if starttime==None :
-            starttime=time.mktime(time.localtime())
-        if endtime==None :
-            endtime=time.mktime(time.localtime())
-        if owner==None :
-            owner=owner_no
+        if starttime is None :
+            starttime = time.mktime(time.localtime())
+        if endtime is None :
+            endtime = time.mktime(time.localtime())
+        if owner is None :
+            owner = owner_no
         body = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" + \
                 "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">" + \
                 "<s:Body>" + "      <u:AddMessage xmlns:u=\"urn:samsung.com:service:MessageBoxService:1\">" + \
@@ -353,13 +355,13 @@ class SamsungUE46(JNTComponent):
                 return
             recv = s.recv(100000)
             s.close()
-        except :
+        except Exception:
             logger.exeception('Error when notifying %s' % self.id)
 
     def push(self,key):
         # keys : http://wiki.samygo.tv/index.php5/D-Series_Key_Codes
         try :
-            tvlock.acquire()
+            self.tvlock.acquire()
             self.error=0
             new = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             new.connect((self.id, 55000))
@@ -379,13 +381,13 @@ class SamsungUE46(JNTComponent):
             new.send(pkt)
             new.close()
             time.sleep(0.1)
-        except :
+        except Exception:
             logger.exeception('Error when notifying %s' % self.id)
         finally :
-            tvlock.release()
+            self.tvlock.release()
 
 
-class SamsungRemote():
+class SamsungRemote(object):
     class AccessDenied(Exception):
         pass
 

@@ -63,7 +63,7 @@ class JNTValueChannel(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Channel')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_CHANNEL)
-        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
+        set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
@@ -76,7 +76,7 @@ class JNTValueVolume(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Volume')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_VOLUME)
-        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
+        set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
@@ -89,7 +89,7 @@ class JNTValueSource(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Source')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_SOURCE)
-        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
+        set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)

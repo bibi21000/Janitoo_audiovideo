@@ -32,8 +32,8 @@ import logging
 logger = logging.getLogger(__name__)
 #logger.addHandler(NullHandler())
 
-from pkg_resources import get_distribution, DistributionNotFound
-from janitoo.mqtt import MQTTClient
+import os
+from pkg_resources import get_distribution
 from janitoo.server import JNTServer
 
 
