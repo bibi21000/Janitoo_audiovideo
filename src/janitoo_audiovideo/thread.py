@@ -22,7 +22,7 @@ __license__ = """
 """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
-__copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
+__copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000"
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
@@ -37,12 +37,14 @@ import re
 import socket
 from janitoo.options import get_option_autostart
 from janitoo.utils import HADD, HADD_SEP, json_dumps, json_loads
-from janitoo.threads.http import DocumentationResourceComponent
 from janitoo.thread import JNTBusThread
 from janitoo.bus import JNTBus
+from janitoo_factory.threads.http import DocumentationResourceComponent
 
-def make_thread(options):
-    if get_option_autostart(options, 'audiovideo') == True:
+from janitoo_audiovideo import OID
+
+def make_thread(options, force=False):
+    if get_option_autostart(options, OID) == True or force:
         return AudioVideoThread(options)
     else:
         return None
@@ -57,7 +59,7 @@ class AudioVideoThread(JNTBusThread):
     def init_bus(self):
         """Build the bus
         """
-        self.section = 'audiovideo'
+        self.section = OID
         self.bus = JNTBus(options=self.options, oid=self.section, product_name="AudioVideo controller")
 
 class DocumentationAudiovideo(DocumentationResourceComponent):

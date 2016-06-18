@@ -22,7 +22,7 @@ __license__ = """
 """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
-__copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
+__copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000"
 
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
@@ -59,6 +59,8 @@ assert(COMMAND_DESC[COMMAND_AV_CHANNEL] == 'COMMAND_AV_CHANNEL')
 assert(COMMAND_DESC[COMMAND_AV_VOLUME] == 'COMMAND_AV_VOLUME')
 assert(COMMAND_DESC[COMMAND_NOTIFY] == 'COMMAND_NOTIFY')
 ##############################################################
+
+from janitoo_audiovideo import OID
 
 def make_ue46(**kwargs):
     return SamsungUE46(**kwargs)
@@ -109,12 +111,18 @@ class SamsungUE46(JNTComponent):
 
         Arguments:
             bus:
-                a 1-Wire instance representing the bus this device is
-                connected to
+
             addr:
-                the 1-Wire device address (in 7 bits format)
         """
-        JNTComponent.__init__(self, 'audiovideo.samsung_ue46', bus=bus, addr=addr, name="UE46xxxs Samsung TVs", **kwargs)
+        JNTComponent.__init__(
+            self,
+            oid = kwargs.pop('oid','%s.samsung_ue46'%OID),
+            bus = bus,
+            addr = addr,
+            name = kwargs.pop('name',"UE46xxxs Samsung TVs"),
+            product_name = kwargs.pop('product_name',"UE46xxxs Samsung TVs"),
+            product_type = kwargs.pop('product_type',"TV"),
+            **kwargs)
 
         uuid="ip_ping"
         self.values[uuid] = self.value_factory['ip_ping'](options=self.options, uuid=uuid,
@@ -221,7 +229,7 @@ class SamsungUE46(JNTComponent):
                 key = "KEY_CHDOWN"
             with remote:
                 remote.control(key)
-        except:
+        except Exception:
             logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
 
     def channel_set(self, node_uuid, index, data):
@@ -260,7 +268,7 @@ class SamsungUE46(JNTComponent):
             with remote:
                 for key in keys:
                     remote.control(key)
-        except:
+        except Exception:
             logger.exception('[%s] - Exception when setting channel', self.__class__.__name__)
 
     def notify_sms(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :

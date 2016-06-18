@@ -21,7 +21,10 @@ __license__ = """
 """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
-__copyright__ = "Copyright © 2013-2014-2015 Sébastien GALLET aka bibi21000"
+__copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000"
+
+import warnings
+warnings.filterwarnings("ignore")
 
 import sys, os
 import time, datetime
@@ -35,7 +38,7 @@ from janitoo_nosetests.thread import JNTTThread, JNTTThreadCommon
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
-from janitoo.utils import TOPIC_HEARTBEAT
+from janitoo.utils import TOPIC_HEARTBEAT, NETWORK_REQUESTS
 from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
@@ -55,21 +58,12 @@ assert(COMMAND_DESC[COMMAND_DISCOVERY] == 'COMMAND_DISCOVERY')
 class TestAudioVideoSerser(JNTTServer, JNTTServerCommon):
     """Test the Samsung server
     """
-    loglevel = logging.DEBUG
     path = '/tmp/janitoo_test'
     broker_user = 'toto'
     broker_password = 'toto'
     server_class = AudioVideoServer
     server_conf = "tests/data/janitoo_audiovideo.conf"
-
-    def test_110_request_system_values(self):
-        self.start()
-        nodeHADD=HADD%(25,0)
-        self.assertHeartbeatNode(hadd=nodeHADD)
-        clientHADD=HADD%(5,0)
-        self.assertNodeRequest(cmd_class=COMMAND_DISCOVERY, uuid='request_info_nodes', node_hadd=nodeHADD, client_hadd=clientHADD)
-        self.assertBroadcastRequest(cmd_class=COMMAND_DISCOVERY, uuid='request_info_nodes', client_hadd=clientHADD)
-        self.stop()
+    hadds = [HADD%(25,0), HADD%(25,1), HADD%(25,2)]
 
 class TestAudioVideoThread(JNTTThread, JNTTThreadCommon):
     """Test the audiovideo server
