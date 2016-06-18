@@ -27,16 +27,9 @@ __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi2100
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 logger = logging.getLogger(__name__)
-import os, sys
-import threading
-import time
-from datetime import datetime, timedelta
-from subprocess import Popen, PIPE
-import base64
-import re
-import socket
+import os
 from janitoo.options import get_option_autostart
-from janitoo.utils import HADD, HADD_SEP, json_dumps, json_loads
+from janitoo.utils import HADD, json_dumps, json_loads
 from janitoo.thread import JNTBusThread
 from janitoo.bus import JNTBus
 from janitoo_factory.threads.http import DocumentationResourceComponent
@@ -44,7 +37,7 @@ from janitoo_factory.threads.http import DocumentationResourceComponent
 from janitoo_audiovideo import OID
 
 def make_thread(options, force=False):
-    if get_option_autostart(options, OID) == True or force:
+    if get_option_autostart(options, OID) or force:
         return AudioVideoThread(options)
     else:
         return None

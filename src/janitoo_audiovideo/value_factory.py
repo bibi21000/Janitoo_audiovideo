@@ -25,20 +25,9 @@ __email__ = 'bibi21000@gmail.com'
 __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000"
 
 # Set default logging handler to avoid "No handler found" warnings.
-import os
 import logging
-try:  # Python 2.7+                                   # pragma: no cover
-    from logging import NullHandler                   # pragma: no cover
-except ImportError:                                   # pragma: no cover
-    class NullHandler(logging.Handler):               # pragma: no cover
-        """NullHandler logger for python 2.6"""       # pragma: no cover
-        def emit(self, record):                       # pragma: no cover
-            pass                                      # pragma: no cover
 logger = logging.getLogger(__name__)
 
-from janitoo.classes import GENRE_DESC, VALUE_DESC
-from janitoo.utils import json_dumps
-from janitoo.value import JNTValue
 from janitoo.value_factory import JNTValueFactoryEntry
 
 ##############################################################
@@ -74,8 +63,9 @@ class JNTValueChannel(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Channel')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_CHANNEL)
+        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
-            get_data_cb=get_data_cb, set_data_cb=None,
+            get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
 
 class JNTValueVolume(JNTValueFactoryEntry):
@@ -86,8 +76,9 @@ class JNTValueVolume(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Volume')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_VOLUME)
+        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
-            get_data_cb=get_data_cb, set_data_cb=None,
+            get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
 
 class JNTValueSource(JNTValueFactoryEntry):
@@ -98,7 +89,8 @@ class JNTValueSource(JNTValueFactoryEntry):
         label = kwargs.pop('label', 'Source')
         index = kwargs.pop('index', 0)
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_SOURCE)
+        set_data_cb = kwargs.pop('set_data_cb', set_data_cb)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
-            get_data_cb=get_data_cb, set_data_cb=None,
+            get_data_cb=None, set_data_cb=set_data_cb,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
 

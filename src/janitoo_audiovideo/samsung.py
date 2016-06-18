@@ -27,22 +27,15 @@ __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi2100
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 logger = logging.getLogger(__name__)
-import os, sys
-import threading
+import os
 import time
-from datetime import datetime, timedelta
+from datetime import datetime
 from subprocess import Popen, PIPE
 import base64
 import re
 import socket
-from janitoo.options import get_option_autostart
-from janitoo.utils import HADD, HADD_SEP, json_dumps, json_loads
-from janitoo.node import JNTNode
-from janitoo.value import JNTValue
+from janitoo.utils import HADD, HADD_SEP, json_dumps
 from janitoo.component import JNTComponent
-from janitoo.thread import JNTBusThread
-from janitoo.bus import JNTBus
-from janitoo.classes import COMMAND_DESC
 
 ##############################################################
 #Check that we are in sync with the official command classes
@@ -272,7 +265,7 @@ class SamsungUE46(JNTComponent):
             logger.exception('[%s] - Exception when setting channel', self.__class__.__name__)
 
     def notify_sms(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :
-        syslog.syslog(syslog.LOG_DEBUG, 'notify_sms from  %s' % sender_no)
+        logger.debug('notify_sms from  %s', sender_no)
         if rtime==None :
             rtime=time.mktime(time.localtime())
         if receiver==None :
@@ -295,7 +288,7 @@ class SamsungUE46(JNTComponent):
         self._notify(body)
 
     def notify_incoming_call(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :
-        syslog.syslog(syslog.LOG_DEBUG, 'notify_incoming_call from  %s' % sender_no)
+        logger.debug('notify_incoming_call from  %s', sender_no)
         if rtime==None :
             rtime=time.mktime(time.localtime())
         if receiver==None :
@@ -318,7 +311,7 @@ class SamsungUE46(JNTComponent):
         self._notify(body)
 
     def notify_schedule_reminder(self, starttime=None, endtime=None, owner=None, owner_no="0000000000", message="Hello world") :
-        syslog.syslog(syslog.LOG_DEBUG, 'notify_schedule_reminder for  %s' % owner_no)
+        logger.debug('notify_schedule_reminder for  %s', owner_no)
         if starttime==None :
             starttime=time.mktime(time.localtime())
         if endtime==None :
@@ -346,7 +339,7 @@ class SamsungUE46(JNTComponent):
     def _notify(self,message):
         length = len(message)
         header = "POST /PMR/control/MessageBoxService HTTP/1.0\r\n" + "Content-Type: text/xml; charset=\"utf-8\"\r\n" + \
-                "HOST: " + ipsource + \
+                "HOST: " + self.values['ip_ping_config'].data + \
                 "\r\n" + "Content-Length: " + str(length) + "\r\n" + \
                 "SOAPACTION: \"uuid:samsung.com:service:MessageBoxService:1#AddMessage\"\r\n" + "Connection: close\r\n" + "\r\n"
         message = header + message
@@ -355,15 +348,13 @@ class SamsungUE46(JNTComponent):
             s.connect((self.id, 52235))
             sent = s.send(message)
             if (sent <= 0):
-                syslog.syslog(syslog.LOG_ERR, 'Error when notify message. No response from %s'%self.id)
+                logger.error('Error when notify message. No response from %s', self.id)
                 s.close()
                 return
             recv = s.recv(100000)
             s.close()
         except :
-            error = traceback.format_exc()
-            syslog.syslog(syslog.LOG_ERR, 'Error when notifying %s' % self.id)
-            log_exception(error)
+            logger.exeception('Error when notifying %s' % self.id)
 
     def push(self,key):
         # keys : http://wiki.samygo.tv/index.php5/D-Series_Key_Codes
@@ -389,10 +380,7 @@ class SamsungUE46(JNTComponent):
             new.close()
             time.sleep(0.1)
         except :
-            error = traceback.format_exc()
-            syslog.syslog(syslog.LOG_ERR, 'Error when pushing command to TV %s' % self.id)
-            log_exception(error)
-            self.error=1
+            logger.exeception('Error when notifying %s' % self.id)
         finally :
             tvlock.release()
 
