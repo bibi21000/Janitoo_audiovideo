@@ -30,8 +30,6 @@ import threading
 import logging
 from pkg_resources import iter_entry_points
 
-from janitoo_nosetests.component import JNTTComponent, JNTTComponentCommon
-
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
 from janitoo.utils import TOPIC_HEARTBEAT
@@ -39,6 +37,7 @@ from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
 
+from janitoo_nosetests.component import JNTTComponent, JNTTComponentCommon
 
 ##############################################################
 #Check that we are in sync with the official command classes
@@ -69,5 +68,4 @@ class TestSamsungUE46(JNTTComponent, JNTTComponentCommon):
         time.sleep(3)
         self.component.channel_set(0, "18")
         time.sleep(3)
-        eee
 

@@ -43,7 +43,7 @@ from janitoo.utils import TOPIC_NODES, TOPIC_NODES_REPLY, TOPIC_NODES_REQUEST
 from janitoo.utils import TOPIC_BROADCAST_REPLY, TOPIC_BROADCAST_REQUEST
 from janitoo.utils import TOPIC_VALUES_USER, TOPIC_VALUES_CONFIG, TOPIC_VALUES_SYSTEM, TOPIC_VALUES_BASIC
 
-from janitoo_audiovideo.server import AudioVideoServer
+from janitoo.server import JNTServer
 
 ##############################################################
 #Check that we are in sync with the official command classes
@@ -61,7 +61,7 @@ class TestAudioVideoSerser(JNTTServer, JNTTServerCommon):
     path = '/tmp/janitoo_test'
     broker_user = 'toto'
     broker_password = 'toto'
-    server_class = AudioVideoServer
+    server_class = JNTServer
     server_conf = "tests/data/janitoo_audiovideo.conf"
     hadds = [HADD%(25,0), HADD%(25,1), HADD%(25,2)]
 

@@ -41,7 +41,6 @@ from janitoo.runner import Runner, jnt_parse_args
 from janitoo.server import JNTServer
 from janitoo.utils import HADD_SEP, HADD
 
-from janitoo_audiovideo.server import AudioVideoServer
 from janitoo_audiovideo.thread import AudioVideoThread
 
 class TestAudioVideoSerser(JNTTDockerServer, JNTTDockerServerCommon):
@@ -50,7 +49,7 @@ class TestAudioVideoSerser(JNTTDockerServer, JNTTDockerServerCommon):
     path = '/tmp/janitoo_test'
     broker_user = 'toto'
     broker_password = 'toto'
-    server_class = AudioVideoServer
+    server_class = JNTServer
     server_conf = "tests/data/janitoo_audiovideo.conf"
     hadds = [HADD%(25,0)]
 

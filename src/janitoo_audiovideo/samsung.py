@@ -116,6 +116,7 @@ class SamsungUE46(JNTComponent):
             product_name = kwargs.pop('product_name',"UE46xxxs Samsung TVs"),
             product_type = kwargs.pop('product_type',"TV"),
             **kwargs)
+        logger.debug("[%s] - __init__ node uuid:%s", self.__class__.__name__, self.uuid)
 
         self.tvlock = threading.Lock()
 
