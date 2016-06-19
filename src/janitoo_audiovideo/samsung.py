@@ -369,7 +369,7 @@ class SamsungUE46(JNTComponent):
             msg = chr(0x64) + chr(0x00) +\
                 chr(len(base64.b64encode(self.values['ip_ping_config'].data)))    + chr(0x00) + base64.b64encode(self.values['ip_ping_config'].data) +\
                 chr(len(base64.b64encode(self.values['mac_address'].data)))    + chr(0x00) + base64.b64encode(self.values['mac_address'].data) +\
-                chr(len(base64.b64encode(remote))) + chr(0x00) + base64.b64encode(remote)
+                chr(len(base64.b64encode(self.values['remote_name'].data))) + chr(0x00) + base64.b64encode(self.values['remote_name'].data)
             pkt = chr(0x00) +\
                 chr(len(app)) + chr(0x00) + app +\
                 chr(len(msg)) + chr(0x00) + msg
