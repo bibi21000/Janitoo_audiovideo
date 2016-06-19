@@ -34,7 +34,7 @@ from subprocess import Popen, PIPE
 import base64
 import re
 import socket
-from janitoo.utils import HADD, json_dumps
+from janitoo.utils import HADD
 from janitoo.component import JNTComponent
 
 ##############################################################
@@ -366,8 +366,8 @@ class SamsungUE46(JNTComponent):
             new = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             new.connect((self.id, 55000))
             msg = chr(0x64) + chr(0x00) +\
-                chr(len(base64.b64encode(ipsource)))    + chr(0x00) + base64.b64encode(ipsource) +\
-                chr(len(base64.b64encode(macaddress)))    + chr(0x00) + base64.b64encode(macaddress) +\
+                chr(len(base64.b64encode(self.values['ip_ping_config'].data)))    + chr(0x00) + base64.b64encode(self.values['ip_ping_config'].data) +\
+                chr(len(base64.b64encode(self.values['mac_address'].data)))    + chr(0x00) + base64.b64encode(self.values['mac_address'].data) +\
                 chr(len(base64.b64encode(remote))) + chr(0x00) + base64.b64encode(remote)
             pkt = chr(0x00) +\
                 chr(len(app)) + chr(0x00) + app +\
