@@ -83,6 +83,7 @@ setup(
     data_files = data_files,
     zip_safe = False,
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
+    scripts=['src/scripts/jnt_audiovideo'],
     keywords = ["audio","video","television"],
     package_dir = { '': 'src' },
     install_requires=[
