@@ -177,6 +177,12 @@ class SamsungUE46(JNTComponent):
             set_data_cb=self.channel_change,
         )
 
+        uuid="volume_change"
+        self.values[uuid] = self.value_factory['av_volume'](options=self.options, uuid=uuid,
+            node_uuid=self.uuid,
+            set_data_cb=self.volume_change,
+        )
+
     def check_heartbeat(self):
         """Check that the component is 'available'
 
@@ -233,6 +239,31 @@ class SamsungUE46(JNTComponent):
                         keys.append('KEY_8')
                     elif char == '9':
                         keys.append('KEY_9')
+            with remote:
+                for key in keys:
+                    remote.control(key)
+            with remote:
+                remote.control(key)
+        except Exception:
+            logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
+
+    def volume_change(self, node_uuid, index, data):
+        """
+        """
+        try:
+            try:
+                remote = SamsungRemote( self.values['ip_ping_config'].data, self.values['port_cmd'].data,
+                                        self.values['remote_name'].data, self.values['mac_address'].data)
+            except SamsungRemote.AccessDenied:
+                logger.error("[%s] - Error: Access to the TV denied!", self.__class__.__name__)
+                return
+            keys = []
+            if data == "up":
+                keys.append("KEY_VOLUP")
+            elif data == "down":
+                keys.append("KEY_VOLDOWN")
+            elif data == "mute":
+                keys.append("KEY_MUTE")
             with remote:
                 for key in keys:
                     remote.control(key)

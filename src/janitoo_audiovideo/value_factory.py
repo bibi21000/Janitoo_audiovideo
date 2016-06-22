@@ -73,13 +73,14 @@ class JNTValueVolume(JNTValueFactoryEntry):
     """
     """
     def __init__(self, entry_name="av_volume", **kwargs):
-        help = kwargs.pop('help', 'Change the volume to : up, down or #volume')
+        help = kwargs.pop('help', 'Change the volume to : up, down or mute')
         label = kwargs.pop('label', 'Volume')
         index = kwargs.pop('index', 0)
+        list_items = kwargs.pop('list_items', ['up', 'down', 'mute'])
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_VOLUME)
         set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
-            get_data_cb=None, set_data_cb=set_data_cb,
+            get_data_cb=None, set_data_cb=set_data_cb, list_items = list_items,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
 
 class JNTValueSource(JNTValueFactoryEntry):

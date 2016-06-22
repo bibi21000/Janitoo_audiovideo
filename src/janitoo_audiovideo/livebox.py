@@ -103,14 +103,6 @@ class Livebox(JNTComponent):
             label='MAC address',
         )
 
-        uuid="remote_name"
-        self.values[uuid] = self.value_factory['config_string'](options=self.options, uuid=uuid,
-            node_uuid=self.uuid,
-            help='The name of the remote on the TV',
-            label='Remote name',
-            default='Janitoo',
-        )
-
         uuid="sleep_delay"
         self.values[uuid] = self.value_factory['config_float'](options=self.options, uuid=uuid,
             node_uuid=self.uuid,
@@ -127,20 +119,17 @@ class Livebox(JNTComponent):
             default=8080,
         )
 
-        uuid="port_notif"
-        self.values[uuid] = self.value_factory['config_integer'](options=self.options, uuid=uuid,
-            node_uuid=self.uuid,
-            help='The notification port of the TV',
-            label='Port_notif',
-            default=52235,
-        )
-
         uuid="channel_change"
         self.values[uuid] = self.value_factory['av_channel'](options=self.options, uuid=uuid,
             node_uuid=self.uuid,
             set_data_cb=self.channel_change,
         )
 
+        uuid="volume_change"
+        self.values[uuid] = self.value_factory['av_volume'](options=self.options, uuid=uuid,
+            node_uuid=self.uuid,
+            set_data_cb=self.volume_change,
+        )
 
     def check_heartbeat(self):
         """Check that the component is 'available'
@@ -200,36 +189,21 @@ class Livebox(JNTComponent):
         except Exception:
             logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
 
-    def channel_set(self, node_uuid, index, data):
+    def volume_change(self, node_uuid, index, data):
         """
         """
         try:
-            data = "%s" % data
             keys = []
-            for char in data:
-                if char == '0':
-                    keys.append(512)
-                elif char == '1':
-                    keys.append(513)
-                elif char == '2':
-                    keys.append(514)
-                elif char == '3':
-                    keys.append(515)
-                elif char == '4':
-                    keys.append(516)
-                elif char == '5':
-                    keys.append(517)
-                elif char == '6':
-                    keys.append(518)
-                elif char == '7':
-                    keys.append(519)
-                elif char == '8':
-                    keys.append(520)
-                elif char == '9':
-                    keys.append(521)
+            if data == "up":
+                keys.append(115)
+            elif data == "down":
+                keys.append(114)
+            elif data == "mute":
+                keys.append(113)
             for key in keys:
+                logger.info('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
                 r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
                 time.sleep(self.values['sleep_delay'].data)
-        except Exception:
-            logger.exception('[%s] - Exception when setting channel', self.__class__.__name__)
 
+        except Exception:
+            logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
