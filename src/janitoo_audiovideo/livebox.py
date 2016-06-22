@@ -33,7 +33,7 @@ import threading
 from subprocess import Popen, PIPE
 import base64
 import re
-import request
+import requests
 from janitoo.utils import HADD
 from janitoo.component import JNTComponent
 
@@ -136,25 +136,11 @@ class Livebox(JNTComponent):
         )
 
         uuid="channel_change"
-        self.values[uuid] = self.value_factory['action_list'](options=self.options, uuid=uuid,
+        self.values[uuid] = self.value_factory['av_channel'](options=self.options, uuid=uuid,
             node_uuid=self.uuid,
-            help='Change the channel',
-            label='Channel change',
-            list_items=['up', 'down'],
             set_data_cb=self.channel_change,
-            is_writeonly = True,
-            cmd_class = COMMAND_AV_CHANNEL,
         )
 
-        uuid="channel_set"
-        self.values[uuid] = self.value_factory['action_byte'](options=self.options, uuid=uuid,
-            node_uuid=self.uuid,
-            help='Set the channel',
-            label='Channel set',
-            set_data_cb=self.channel_set,
-            is_writeonly = True,
-            cmd_class = COMMAND_AV_CHANNEL,
-        )
 
     def check_heartbeat(self):
         """Check that the component is 'available'
@@ -179,11 +165,38 @@ class Livebox(JNTComponent):
         """
         """
         try:
+            keys = []
             if data == "up":
-                key = 402
+                keys.append(402)
             elif data == "down":
-                key = 403
-            r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, data))
+                keys.append(403)
+            else:
+                for char in data:
+                    if char == '0':
+                        keys.append(512)
+                    elif char == '1':
+                        keys.append(513)
+                    elif char == '2':
+                        keys.append(514)
+                    elif char == '3':
+                        keys.append(515)
+                    elif char == '4':
+                        keys.append(516)
+                    elif char == '5':
+                        keys.append(517)
+                    elif char == '6':
+                        keys.append(518)
+                    elif char == '7':
+                        keys.append(519)
+                    elif char == '8':
+                        keys.append(520)
+                    elif char == '9':
+                        keys.append(521)
+            for key in keys:
+                logger.info('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
+                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
+                time.sleep(self.values['sleep_delay'].data)
+
         except Exception:
             logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
 
@@ -215,7 +228,7 @@ class Livebox(JNTComponent):
                 elif char == '9':
                     keys.append(521)
             for key in keys:
-                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, data))
+                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
                 time.sleep(self.values['sleep_delay'].data)
         except Exception:
             logger.exception('[%s] - Exception when setting channel', self.__class__.__name__)

@@ -172,24 +172,9 @@ class SamsungUE46(JNTComponent):
         )
 
         uuid="channel_change"
-        self.values[uuid] = self.value_factory['action_list'](options=self.options, uuid=uuid,
+        self.values[uuid] = self.value_factory['av_channel'](options=self.options, uuid=uuid,
             node_uuid=self.uuid,
-            help='Change the channel',
-            label='Channel change',
-            list_items=['up', 'down'],
             set_data_cb=self.channel_change,
-            is_writeonly = True,
-            cmd_class = COMMAND_AV_CHANNEL,
-        )
-
-        uuid="channel_set"
-        self.values[uuid] = self.value_factory['action_byte'](options=self.options, uuid=uuid,
-            node_uuid=self.uuid,
-            help='Set the channel',
-            label='Channel set',
-            set_data_cb=self.channel_set,
-            is_writeonly = True,
-            cmd_class = COMMAND_AV_CHANNEL,
         )
 
     def check_heartbeat(self):
@@ -221,53 +206,40 @@ class SamsungUE46(JNTComponent):
             except SamsungRemote.AccessDenied:
                 logger.error("[%s] - Error: Access to the TV denied!", self.__class__.__name__)
                 return
+            keys = []
             if data == "up":
-                key = "KEY_CHUP"
+                keys.append("KEY_CHUP")
             elif data == "down":
-                key = "KEY_CHDOWN"
+                keys.append("KEY_CHDOWN")
+            else:
+                for char in data:
+                    if char == '0':
+                        keys.append('KEY_0')
+                    elif char == '1':
+                        keys.append('KEY_1')
+                    elif char == '2':
+                        keys.append('KEY_2')
+                    elif char == '3':
+                        keys.append('KEY_3')
+                    elif char == '4':
+                        keys.append('KEY_4')
+                    elif char == '5':
+                        keys.append('KEY_5')
+                    elif char == '6':
+                        keys.append('KEY_6')
+                    elif char == '7':
+                        keys.append('KEY_7')
+                    elif char == '8':
+                        keys.append('KEY_8')
+                    elif char == '9':
+                        keys.append('KEY_9')
+            with remote:
+                for key in keys:
+                    remote.control(key)
             with remote:
                 remote.control(key)
         except Exception:
             logger.exception('[%s] - Exception when changing channel', self.__class__.__name__)
-
-    def channel_set(self, node_uuid, index, data):
-        """
-        """
-        try:
-            try:
-                remote = SamsungRemote( self.values['ip_ping_config'].data, self.values['port_cmd'].data,
-                                        self.values['remote_name'].data, self.values['mac_address'].data)
-            except SamsungRemote.AccessDenied:
-                logger.error("[%s] - Error: Access to the TV denied!", self.__class__.__name__)
-                return
-            data = "%s" % data
-            keys = []
-            for char in data:
-                if char == '0':
-                    keys.append('KEY_0')
-                elif char == '1':
-                    keys.append('KEY_1')
-                elif char == '2':
-                    keys.append('KEY_2')
-                elif char == '3':
-                    keys.append('KEY_3')
-                elif char == '4':
-                    keys.append('KEY_4')
-                elif char == '5':
-                    keys.append('KEY_5')
-                elif char == '6':
-                    keys.append('KEY_6')
-                elif char == '7':
-                    keys.append('KEY_7')
-                elif char == '8':
-                    keys.append('KEY_8')
-                elif char == '9':
-                    keys.append('KEY_9')
-            with remote:
-                for key in keys:
-                    remote.control(key)
-        except Exception:
-            logger.exception('[%s] - Exception when setting channel', self.__class__.__name__)
 
     def notify_sms(self, rtime=None, receiver=None, receiver_no="0000000000", sender=None, sender_no="0000000000", message="Hello world") :
         logger.debug('notify_sms from  %s', sender_no)

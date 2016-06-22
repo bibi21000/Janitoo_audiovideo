@@ -62,10 +62,11 @@ class JNTValueChannel(JNTValueFactoryEntry):
         help = kwargs.pop('help', 'Change the channel to : up, down or #channel')
         label = kwargs.pop('label', 'Channel')
         index = kwargs.pop('index', 0)
+        list_items = kwargs.pop('list_items', ['up', 'down', '#channel'])
         cmd_class = kwargs.pop('cmd_class', COMMAND_AV_CHANNEL)
         set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
-            get_data_cb=None, set_data_cb=set_data_cb,
+            get_data_cb=None, set_data_cb=set_data_cb, list_items = list_items,
             index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
 
 class JNTValueVolume(JNTValueFactoryEntry):
