@@ -12,14 +12,6 @@ janitoo_audiovideo.samsung module
     :undoc-members:
     :show-inheritance:
 
-janitoo_audiovideo.server module
---------------------------------
-
-.. automodule:: janitoo_audiovideo.server
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 janitoo_audiovideo.thread module
 --------------------------------
 

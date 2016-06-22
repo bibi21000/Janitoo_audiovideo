@@ -136,16 +136,12 @@
 </div>
 <div class="section" id="initial-installation">
 <h2>Initial installation<a class="headerlink" href="#initial-installation" title="Permalink to this headline">¶</a></h2>
-<p>Pull the image :</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>$ docker pull bibi21000/janitoo_audiovideo
-</pre></div>
-</div>
 <p>Create a &#8216;store&#8217; container  :</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>$ docker create -v /root/.ssh/ -v /opt/janitoo/etc/ --name hostsensor_store bibi21000/janitoo_audiovideo /bin/true
+<div class="code bash highlight-python"><div class="highlight"><pre>$ make docker-local-store
 </pre></div>
 </div>
 <p>Create a &#8216;running&#8217; container :</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>$ docker create --volumes-from hostsensor_store -p 8882:22 --name hostsensor_running bibi21000/janitoo_audiovideo
+<div class="code bash highlight-python"><div class="highlight"><pre>$ make docker-local-running
 </pre></div>
 </div>
 <p>Yous should now have 2 created containers :</p>
@@ -169,7 +165,7 @@
 </pre></div>
 </div>
 <div class="code bash highlight-python"><div class="highlight"><pre>CONTAINER ID        IMAGE                          COMMAND             CREATED              STATUS          PORTS                  NAMES
-cc1a58b59f7c        bibi21000/janitoo_audiovideo   &quot;/root/auto.sh&quot;     About a minute ago   Up 8 seconds    0.0.0.0:8882-&gt;22/tcp   hostsensor_running
+cc1a58b59f7c        bibi21000/janitoo_audiovideo   &quot;/root/auto.sh&quot;     About a minute ago   Up 8 seconds    0.0.0.0:8886-&gt;22/tcp   hostsensor_running
 </pre></div>
 </div>
 <p>And stop it :</p>
@@ -184,7 +180,7 @@ cc1a58b59f7c        bibi21000/janitoo_audiovideo   &quot;/root/auto.sh&quot;    
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>Update the hostsensor configuration file :</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>$ ssh root@127.0.0.1 -p 8882
+<div class="code bash highlight-python"><div class="highlight"><pre>$ ssh root@127.0.0.1 -p 8886
 </pre></div>
 </div>
 <p>Default password is janitoo. You can change it but it will be restored on the next running container update. Prefer the key solutions.</p>
