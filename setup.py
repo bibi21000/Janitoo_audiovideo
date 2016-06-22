@@ -103,6 +103,7 @@ setup(
         ],
         "janitoo.components": [
             "audiovideo.samsung_ue46 = janitoo_audiovideo.samsung:make_ue46",
+            "audiovideo.livebox = janitoo_audiovideo.livebox:make_livebox",
         ],
         "janitoo.values": [
             "av_channel = janitoo_audiovideo.value_factory:make_av_channel",

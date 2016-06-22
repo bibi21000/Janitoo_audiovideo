@@ -97,7 +97,8 @@ _mappings = [
 ]
 
 class SamsungUE46(JNTComponent):
-    """ Provides the interface for a DS18B20 device. """
+    """
+    """
 
     def __init__(self, bus=None, addr=None, **kwargs):
         """ Constructor.
@@ -143,6 +144,7 @@ class SamsungUE46(JNTComponent):
             node_uuid=self.uuid,
             help='The name of the remote on the TV',
             label='Remote name',
+            default='Janitoo',
         )
 
         uuid="sleep_delay"
@@ -204,9 +206,9 @@ class SamsungUE46(JNTComponent):
                     if remac is not None:
                         macaddress = remac.groups()[0]
                         self.values['mac_address'].data = macaddress
-                logger.warning("[%s] - Can't retrieve mac address of the tv", self.__class__.__name__)
+                logger.warning("[%s] - Can't retrieve mac address of %s", self.__class__.__name__, self.values['ip_ping_config'].data)
             except Exception:
-                logger.exception('[%s] - Exception when retrieving mac address of the tv', self.__class__.__name__)
+                logger.exception('[%s] - Exception when retrieving mac address of %s', self.__class__.__name__, self.values['ip_ping_config'].data)
         return ret
 
     def channel_change(self, node_uuid, index, data):

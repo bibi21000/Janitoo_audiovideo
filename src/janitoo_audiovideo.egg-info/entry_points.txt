@@ -1,4 +1,5 @@
 [janitoo.components]
+audiovideo.livebox = janitoo_audiovideo.livebox:make_livebox
 audiovideo.samsung_ue46 = janitoo_audiovideo.samsung:make_ue46
 
 [janitoo.threads]

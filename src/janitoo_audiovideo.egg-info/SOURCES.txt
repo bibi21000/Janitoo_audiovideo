@@ -1,6 +1,7 @@
 README.rst
 setup.py
 src/janitoo_audiovideo/__init__.py
+src/janitoo_audiovideo/livebox.py
 src/janitoo_audiovideo/samsung.py
 src/janitoo_audiovideo/thread.py
 src/janitoo_audiovideo/value_factory.py
@@ -11,3 +12,4 @@ src/janitoo_audiovideo.egg-info/entry_points.txt
 src/janitoo_audiovideo.egg-info/not-zip-safe
 src/janitoo_audiovideo.egg-info/requires.txt
 src/janitoo_audiovideo.egg-info/top_level.txt
+src/scripts/jnt_audiovideo
