@@ -15,23 +15,17 @@ Install docker using the following documentation https://docs.docker.com/engine/
 Initial installation
 ====================
 
-Pull the image :
-
-.. code:: bash
-
-    $ docker pull bibi21000/janitoo_audiovideo
-
 Create a 'store' container  :
 
 .. code:: bash
 
-    $ docker create -v /root/.ssh/ -v /opt/janitoo/etc/ --name hostsensor_store bibi21000/janitoo_audiovideo /bin/true
+    $ make docker-local-store
 
 Create a 'running' container :
 
 .. code:: bash
 
-    $ docker create --volumes-from hostsensor_store -p 8882:22 --name hostsensor_running bibi21000/janitoo_audiovideo
+    $ make docker-local-running
 
 Yous should now have 2 created containers :
 
@@ -64,7 +58,7 @@ Check that is running :
 .. code:: bash
 
     CONTAINER ID        IMAGE                          COMMAND             CREATED              STATUS          PORTS                  NAMES
-    cc1a58b59f7c        bibi21000/janitoo_audiovideo   "/root/auto.sh"     About a minute ago   Up 8 seconds    0.0.0.0:8882->22/tcp   hostsensor_running
+    cc1a58b59f7c        bibi21000/janitoo_audiovideo   "/root/auto.sh"     About a minute ago   Up 8 seconds    0.0.0.0:8886->22/tcp   hostsensor_running
 
 And stop it :
 
@@ -87,7 +81,7 @@ Update the hostsensor configuration file :
 
 .. code:: bash
 
-    $ ssh root@127.0.0.1 -p 8882
+    $ ssh root@127.0.0.1 -p 8886
 
 Default password is janitoo. You can change it but it will be restored on the next running container update. Prefer the key solutions.
 
