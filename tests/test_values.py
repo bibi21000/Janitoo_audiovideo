@@ -45,17 +45,22 @@ from janitoo.runner import Runner, jnt_parse_args
 from janitoo.server import JNTServer
 from janitoo.options import JNTOptions
 
-class TestChannelValue(JNTTFactory, JNTTFactoryConfigCommon, JNTTFactoryPollCommon):
+class FactoryConf(object):
+    """
+    """
+    conf_file = 'tests/data/janitoo_audiovideo.conf'
+
+class TestChannelValue(FactoryConf, JNTTFactory, JNTTFactoryCommon):
     """Test the value factory
     """
     entry_name='av_channel'
 
-class TestVolumeValue(JNTTFactory, JNTTFactoryConfigCommon, JNTTFactoryPollCommon):
+class TestVolumeValue(FactoryConf, JNTTFactory, JNTTFactoryCommon):
     """Test the value factory
     """
     entry_name='av_volume'
 
-class TestSourceValue(JNTTFactory, JNTTFactoryConfigCommon, JNTTFactoryPollCommon):
+class TestSourceValue(FactoryConf, JNTTFactory, JNTTFactoryCommon):
     """Test the value factory
     """
     entry_name='av_source'
