@@ -131,6 +131,14 @@ class Livebox(JNTComponent):
             set_data_cb=self.volume_change,
         )
 
+        uuid = "request_timeout"
+        self.values[uuid] = self.value_factory['config_float'](options=self.options, uuid=uuid,
+            node_uuid=self.uuid,
+            help='The timeout for requests',
+            label='req_timeout',
+            default=5,
+        )
+
     def check_heartbeat(self):
         """Check that the component is 'available'
 
@@ -183,7 +191,7 @@ class Livebox(JNTComponent):
                         keys.append(521)
             for key in keys:
                 logger.info('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
-                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
+                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key), timeout=self.values['request_timeout'].data)
                 time.sleep(self.values['sleep_delay'].data)
 
         except Exception:
@@ -202,7 +210,7 @@ class Livebox(JNTComponent):
                 keys.append(113)
             for key in keys:
                 logger.info('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
-                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key))
+                r = requests.get('http://%s:%s/remoteControl/cmd?operation=01&key=%s&mode=0'%(self.values['ip_ping_config'].data, self.values['port_cmd'].data, key), timeout=self.values['request_timeout'].data)
                 time.sleep(self.values['sleep_delay'].data)
 
         except Exception:

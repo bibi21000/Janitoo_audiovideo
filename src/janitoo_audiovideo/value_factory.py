@@ -67,7 +67,7 @@ class JNTValueChannel(JNTValueFactoryEntry):
         set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb, list_items = list_items,
-            index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
+            index=index, cmd_class=cmd_class, genre=0x02, type=0x05, is_writeonly=True, **kwargs)
 
 class JNTValueVolume(JNTValueFactoryEntry):
     """
@@ -81,7 +81,7 @@ class JNTValueVolume(JNTValueFactoryEntry):
         set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb, list_items = list_items,
-            index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
+            index=index, cmd_class=cmd_class, genre=0x02, type=0x05, is_writeonly=True, **kwargs)
 
 class JNTValueSource(JNTValueFactoryEntry):
     """
@@ -94,5 +94,5 @@ class JNTValueSource(JNTValueFactoryEntry):
         set_data_cb = kwargs.pop('set_data_cb', None)
         JNTValueFactoryEntry.__init__(self, entry_name=entry_name, help=help, label=label,
             get_data_cb=None, set_data_cb=set_data_cb,
-            index=index, cmd_class=cmd_class, genre=0x02, type=0x08, is_writeonly=True, **kwargs)
+            index=index, cmd_class=cmd_class, genre=0x02, type=0x05, is_writeonly=True, **kwargs)
 

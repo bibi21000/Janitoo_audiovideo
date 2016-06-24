@@ -183,6 +183,14 @@ class SamsungUE46(JNTComponent):
             set_data_cb=self.volume_change,
         )
 
+        uuid = "request_timeout"
+        self.values[uuid] = self.value_factory['config_float'](options=self.options, uuid=uuid,
+            node_uuid=self.uuid,
+            help='The timeout for requests',
+            label='req_timeout',
+            default=5,
+        )
+
     def check_heartbeat(self):
         """Check that the component is 'available'
 
