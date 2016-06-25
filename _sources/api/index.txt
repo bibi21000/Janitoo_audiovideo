@@ -4,6 +4,14 @@ janitoo_audiovideo package
 Submodules
 ----------
 
+janitoo_audiovideo.livebox module
+---------------------------------
+
+.. automodule:: janitoo_audiovideo.livebox
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 janitoo_audiovideo.samsung module
 ---------------------------------
 

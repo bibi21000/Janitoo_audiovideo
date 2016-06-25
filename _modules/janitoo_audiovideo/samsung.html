@@ -219,7 +219,8 @@
 <span class="p">]</span>
 
 <div class="viewcode-block" id="SamsungUE46"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46">[docs]</a><span class="k">class</span> <span class="nc">SamsungUE46</span><span class="p">(</span><span class="n">JNTComponent</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Provides the interface for a DS18B20 device. &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bus</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">addr</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor.</span>
@@ -265,6 +266,7 @@
             <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
             <span class="n">help</span><span class="o">=</span><span class="s">&#39;The name of the remote on the TV&#39;</span><span class="p">,</span>
             <span class="n">label</span><span class="o">=</span><span class="s">&#39;Remote name&#39;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="s">&#39;Janitoo&#39;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;sleep_delay&quot;</span>
@@ -292,24 +294,23 @@
         <span class="p">)</span>
 
         <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;channel_change&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;action_list&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;av_channel&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
             <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Change the channel&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Channel change&#39;</span><span class="p">,</span>
-            <span class="n">list_items</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;up&#39;</span><span class="p">,</span> <span class="s">&#39;down&#39;</span><span class="p">],</span>
             <span class="n">set_data_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_change</span><span class="p">,</span>
-            <span class="n">is_writeonly</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
-            <span class="n">cmd_class</span> <span class="o">=</span> <span class="n">COMMAND_AV_CHANNEL</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;channel_set&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;action_byte&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+        <span class="n">uuid</span><span class="o">=</span><span class="s">&quot;volume_change&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;av_volume&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
             <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
-            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Set the channel&#39;</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s">&#39;Channel set&#39;</span><span class="p">,</span>
-            <span class="n">set_data_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">channel_set</span><span class="p">,</span>
-            <span class="n">is_writeonly</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
-            <span class="n">cmd_class</span> <span class="o">=</span> <span class="n">COMMAND_AV_CHANNEL</span><span class="p">,</span>
+            <span class="n">set_data_cb</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">volume_change</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">uuid</span> <span class="o">=</span> <span class="s">&quot;request_timeout&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">uuid</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_factory</span><span class="p">[</span><span class="s">&#39;config_float&#39;</span><span class="p">](</span><span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="n">uuid</span><span class="o">=</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">node_uuid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&#39;The timeout for requests&#39;</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&#39;req_timeout&#39;</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="SamsungUE46.check_heartbeat"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.check_heartbeat">[docs]</a>    <span class="k">def</span> <span class="nf">check_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -326,9 +327,9 @@
                     <span class="k">if</span> <span class="n">remac</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                         <span class="n">macaddress</span> <span class="o">=</span> <span class="n">remac</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;mac_address&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">macaddress</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Can&#39;t retrieve mac address of the tv&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Can&#39;t retrieve mac address of </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when retrieving mac address of the tv&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when retrieving mac address of </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s">&#39;ip_ping_config&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ret</span>
 </div>
 <div class="viewcode-block" id="SamsungUE46.channel_change"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.channel_change">[docs]</a>    <span class="k">def</span> <span class="nf">channel_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_uuid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -341,16 +342,42 @@
             <span class="k">except</span> <span class="n">SamsungRemote</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Error: Access to the TV denied!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
                 <span class="k">return</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;up&quot;</span><span class="p">:</span>
-                <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;KEY_CHUP&quot;</span>
+                <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;KEY_CHUP&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;down&quot;</span><span class="p">:</span>
-                <span class="n">key</span> <span class="o">=</span> <span class="s">&quot;KEY_CHDOWN&quot;</span>
+                <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;KEY_CHDOWN&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_0&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_1&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;2&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_2&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;3&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_3&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;4&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_4&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;5&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_5&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;6&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_6&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;7&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_7&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;8&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_8&#39;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;9&#39;</span><span class="p">:</span>
+                        <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_9&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                    <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
             <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
                 <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when changing channel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="SamsungUE46.channel_set"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.channel_set">[docs]</a>    <span class="k">def</span> <span class="nf">channel_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_uuid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="SamsungUE46.volume_change"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.volume_change">[docs]</a>    <span class="k">def</span> <span class="nf">volume_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_uuid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
@@ -360,34 +387,20 @@
             <span class="k">except</span> <span class="n">SamsungRemote</span><span class="o">.</span><span class="n">AccessDenied</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">%s</span><span class="s">] - Error: Access to the TV denied!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
                 <span class="k">return</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">data</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_0&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_1&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;2&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_2&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;3&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_3&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;4&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_4&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;5&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_5&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;6&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_6&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;7&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_7&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;8&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_8&#39;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s">&#39;9&#39;</span><span class="p">:</span>
-                    <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;KEY_9&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;up&quot;</span><span class="p">:</span>
+                <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;KEY_VOLUP&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;down&quot;</span><span class="p">:</span>
+                <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;KEY_VOLDOWN&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">data</span> <span class="o">==</span> <span class="s">&quot;mute&quot;</span><span class="p">:</span>
+                <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;KEY_MUTE&quot;</span><span class="p">)</span>
             <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
                     <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">remote</span><span class="p">:</span>
+                <span class="n">remote</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when setting channel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&#39;[</span><span class="si">%s</span><span class="s">] - Exception when changing channel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="SamsungUE46.notify_sms"><a class="viewcode-back" href="../../api/index.html#janitoo_audiovideo.samsung.SamsungUE46.notify_sms">[docs]</a>    <span class="k">def</span> <span class="nf">notify_sms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtime</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">receiver_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sender_no</span><span class="o">=</span><span class="s">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span> <span class="p">:</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;notify_sms from  </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">sender_no</span><span class="p">)</span>

@@ -123,6 +123,37 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-janitoo_audiovideo.livebox">
+<span id="janitoo-audiovideo-livebox-module"></span><h2>janitoo_audiovideo.livebox module<a class="headerlink" href="#module-janitoo_audiovideo.livebox" title="Permalink to this headline">¶</a></h2>
+<p>The Samsung Janitoo helper</p>
+<dl class="class">
+<dt id="janitoo_audiovideo.livebox.Livebox">
+<em class="property">class </em><tt class="descclassname">janitoo_audiovideo.livebox.</tt><tt class="descname">Livebox</tt><big>(</big><em>bus=None</em>, <em>addr=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/livebox.html#Livebox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.livebox.Livebox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">janitoo.component.JNTComponent</span></tt></p>
+<dl class="method">
+<dt id="janitoo_audiovideo.livebox.Livebox.channel_change">
+<tt class="descname">channel_change</tt><big>(</big><em>node_uuid</em>, <em>index</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/livebox.html#Livebox.channel_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.livebox.Livebox.channel_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janitoo_audiovideo.livebox.Livebox.check_heartbeat">
+<tt class="descname">check_heartbeat</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/livebox.html#Livebox.check_heartbeat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.livebox.Livebox.check_heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the component is &#8216;available&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="janitoo_audiovideo.livebox.Livebox.volume_change">
+<tt class="descname">volume_change</tt><big>(</big><em>node_uuid</em>, <em>index</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/livebox.html#Livebox.volume_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.livebox.Livebox.volume_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="janitoo_audiovideo.livebox.make_livebox">
+<tt class="descclassname">janitoo_audiovideo.livebox.</tt><tt class="descname">make_livebox</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/livebox.html#make_livebox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.livebox.make_livebox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-janitoo_audiovideo.samsung">
 <span id="janitoo-audiovideo-samsung-module"></span><h2>janitoo_audiovideo.samsung module<a class="headerlink" href="#module-janitoo_audiovideo.samsung" title="Permalink to this headline">¶</a></h2>
 <p>The Samsung Janitoo helper</p>
@@ -158,15 +189,9 @@
 <dt id="janitoo_audiovideo.samsung.SamsungUE46">
 <em class="property">class </em><tt class="descclassname">janitoo_audiovideo.samsung.</tt><tt class="descname">SamsungUE46</tt><big>(</big><em>bus=None</em>, <em>addr=None</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/samsung.html#SamsungUE46"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.samsung.SamsungUE46" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">janitoo.component.JNTComponent</span></tt></p>
-<p>Provides the interface for a DS18B20 device.</p>
 <dl class="method">
 <dt id="janitoo_audiovideo.samsung.SamsungUE46.channel_change">
 <tt class="descname">channel_change</tt><big>(</big><em>node_uuid</em>, <em>index</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/samsung.html#SamsungUE46.channel_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.samsung.SamsungUE46.channel_change" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="janitoo_audiovideo.samsung.SamsungUE46.channel_set">
-<tt class="descname">channel_set</tt><big>(</big><em>node_uuid</em>, <em>index</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/samsung.html#SamsungUE46.channel_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.samsung.SamsungUE46.channel_set" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -193,6 +218,11 @@
 <dl class="method">
 <dt id="janitoo_audiovideo.samsung.SamsungUE46.push">
 <tt class="descname">push</tt><big>(</big><em>key</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/samsung.html#SamsungUE46.push"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.samsung.SamsungUE46.push" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janitoo_audiovideo.samsung.SamsungUE46.volume_change">
+<tt class="descname">volume_change</tt><big>(</big><em>node_uuid</em>, <em>index</em>, <em>data</em><big>)</big><a class="reference internal" href="../_modules/janitoo_audiovideo/samsung.html#SamsungUE46.volume_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janitoo_audiovideo.samsung.SamsungUE46.volume_change" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
