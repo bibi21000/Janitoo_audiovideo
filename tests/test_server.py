@@ -35,6 +35,7 @@ from pkg_resources import iter_entry_points
 
 from janitoo_nosetests.server import JNTTServer, JNTTServerCommon
 from janitoo_nosetests.thread import JNTTThread, JNTTThreadCommon
+from janitoo_nosetests.thread import JNTTThreadRun, JNTTThreadRunCommon
 
 from janitoo.utils import json_dumps, json_loads
 from janitoo.utils import HADD_SEP, HADD
@@ -65,7 +66,18 @@ class TestAudioVideoSerser(JNTTServer, JNTTServerCommon):
     server_conf = "tests/data/janitoo_audiovideo.conf"
     hadds = [HADD%(25,0), HADD%(25,1), HADD%(25,2)]
 
-class TestAudioVideoThread(JNTTThread, JNTTThreadCommon):
+class TestAudioVideoThread(JNTTThreadRun, JNTTThreadRunCommon):
     """Test the audiovideo server
     """
     thread_name = "audiovideo"
+    conf_file = "tests/data/janitoo_audiovideo.conf"
+
+    def test_102_check_values(self):
+        self.wait_for_nodeman()
+        time.sleep(5)
+        self.assertValueOnBus('tv1','channel_change')
+        self.assertValueOnBus('tv1','volume_change')
+        self.assertValueOnBus('tv2','channel_change')
+        self.assertValueOnBus('tv2','volume_change')
+        self.assertValueOnBus('livebox','channel_change')
+        self.assertValueOnBus('livebox','volume_change')
