@@ -196,18 +196,6 @@ class SamsungUE46(JNTComponent):
 
         """
         ret = self.values['ip_ping'].data
-        if self.values['mac_address'].data is None or self.values['mac_address'].data == "":
-            try:
-                if self.values['ip_ping_config'].data is not None:
-                    pid = Popen(["/usr/sbin/arp", "-n", '%s'%self.values['ip_ping_config'].data], stdout=PIPE)
-                    s = pid.communicate()[0]
-                    remac = re.search(r"(([a-f\d]{1,2}\:){5}[a-f\d]{1,2})", s)
-                    if remac is not None:
-                        macaddress = remac.groups()[0]
-                        self.values['mac_address'].data = macaddress
-                logger.warning("[%s] - Can't retrieve mac address of %s", self.__class__.__name__, self.values['ip_ping_config'].data)
-            except Exception:
-                logger.exception('[%s] - Exception when retrieving mac address of %s', self.__class__.__name__, self.values['ip_ping_config'].data)
         return ret
 
     def channel_change(self, node_uuid, index, data):
@@ -215,6 +203,7 @@ class SamsungUE46(JNTComponent):
         """
         try:
             try:
+                self.get_macc()
                 remote = SamsungRemote( self.values['ip_ping_config'].data, self.values['port_cmd'].data,
                                         self.values['remote_name'].data, self.values['mac_address'].data)
             except SamsungRemote.AccessDenied:
@@ -260,6 +249,7 @@ class SamsungUE46(JNTComponent):
         """
         try:
             try:
+                self.get_macc()
                 remote = SamsungRemote( self.values['ip_ping_config'].data, self.values['port_cmd'].data,
                                         self.values['remote_name'].data, self.values['mac_address'].data)
             except SamsungRemote.AccessDenied:
@@ -360,6 +350,7 @@ class SamsungUE46(JNTComponent):
                 "SOAPACTION: \"uuid:samsung.com:service:MessageBoxService:1#AddMessage\"\r\n" + "Connection: close\r\n" + "\r\n"
         message = header + message
         try :
+            self.get_macc()
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
             s.connect((self.id, 52235))
             sent = s.send(message)
@@ -375,6 +366,7 @@ class SamsungUE46(JNTComponent):
     def push(self,key):
         # keys : http://wiki.samygo.tv/index.php5/D-Series_Key_Codes
         try :
+            self.get_macc()
             self.tvlock.acquire()
             self.error=0
             new = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

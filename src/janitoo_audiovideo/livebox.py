@@ -139,11 +139,10 @@ class Livebox(JNTComponent):
             default=5,
         )
 
-    def check_heartbeat(self):
+    def get_macc(self):
         """Check that the component is 'available'
 
         """
-        ret = self.values['ip_ping'].data
         if self.values['mac_address'].data is None or self.values['mac_address'].data == "":
             try:
                 if self.values['ip_ping_config'].data is not None:
@@ -156,12 +155,19 @@ class Livebox(JNTComponent):
                 logger.warning("[%s] - Can't retrieve mac address of %s", self.__class__.__name__, self.values['ip_ping_config'].data)
             except Exception:
                 logger.exception('[%s] - Exception when retrieving mac address of %s', self.__class__.__name__, self.values['ip_ping_config'].data)
+
+    def check_heartbeat(self):
+        """Check that the component is 'available'
+
+        """
+        ret = self.values['ip_ping'].data
         return ret
 
     def channel_change(self, node_uuid, index, data):
         """
         """
         try:
+            self.get_macc()
             keys = []
             if data == "up":
                 keys.append(402)
@@ -201,6 +207,7 @@ class Livebox(JNTComponent):
         """
         """
         try:
+            self.get_macc()
             keys = []
             if data == "up":
                 keys.append(115)
